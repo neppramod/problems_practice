@@ -44,7 +44,9 @@ class IsTreeBalanced
 	root.right.right.right.right = new Node(9);
 
 	
-
+	Node abc = new Node(15);
+	System.out.println(getHeight(abc));
+	System.out.println(getHeight(root));
 
 	System.out.println(isTreeBalanced(root));
 
