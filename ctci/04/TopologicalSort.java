@@ -13,14 +13,14 @@ public class TopologicalSort
 	    return n1.data == n2.data;
 	}
 
-	public String toString() { return this.data + ", "; }
+	public String toString() { return this.data + " "; }
     }
 
     public static class Graph
     {
 	public Set<Node> allNodes = new HashSet<Node>();
 
-	public static Node findorCreateNode(int data)
+	public Node findorCreateNode(int data)
 	{
 	    for (Node n : allNodes) {
 		if (n.data == data)
@@ -36,6 +36,7 @@ public class TopologicalSort
 	    Node node2 = findorCreateNode(b);
 	    node1.neighbors.add(node2);
 	    allNodes.add(node1);
+	    allNodes.add(node2);
 	}
     }
 
@@ -80,13 +81,15 @@ public class TopologicalSort
 	g.addEdge(6,3);
 	g.addEdge(8,11);
 
-	for (Node n : g.allNodes) {
-	    System.out.println(n);
-	}
-
 	TopologicalSort ts = new TopologicalSort();
 	Stack<Node> orderValues = ts.sort(g);
 
-	System.out.println(orderValues);
+	while (!orderValues.isEmpty()) {
+	    Node n = orderValues.pop();
+	    System.out.print(n);
+	}
+
+	System.out.println();
+	
     }
 }
