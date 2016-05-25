@@ -1,6 +1,5 @@
 import java.util.*;
 
-// Not a correct solution, but close to.
 public class TopologicalSort
 {
     public static class Node
