@@ -28,6 +28,7 @@
 *.iml
 *.class
 *~
+*.orig
 
 
 ## Plugin-specific files:
