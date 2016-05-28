@@ -4,7 +4,7 @@ public class StrPermutation
     public static void permutation(String str, String prefix)
     {
 	if (str.length() == 0) {
-	    System.out.println(prefix);
+	    System.out.print(prefix + " ");
 	} else {
 
 	    for (int i = 0; i < str.length(); i++) {
@@ -16,7 +16,13 @@ public class StrPermutation
 
     public static void main(String[] args)
     {
-	permutation("abc","");
+	String abc = "abcd";
+	permutation(abc, "");
+	/*
+	for (int i = 1; i <= abc.length(); i++) {
+	    permutation(abc.substring(0, i),"");
+	}
+	*/
     }
 }
 
