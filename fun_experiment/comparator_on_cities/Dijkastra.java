@@ -22,6 +22,19 @@ public class Dijkastra
 			City c2 = (City) o2;
 			return this.cost - c2.cost;
 		}
+		
+		
+		public boolean equals(City c)
+		{
+			return this.name.equals(c.name);
+		}
+		
+		
+		public String toString()
+		{
+			return name;
+		}	
+		
 	}
 	
 	static class Path
@@ -33,11 +46,13 @@ public class Dijkastra
 		
 		boolean equals(Path p)
 		{
-		return this.c1 == p.c1 && this.c2 == p.c2;
-		/*
-			return (this.c1 == p.c1 && this.c2 == p.c2) || 
-				(this.c1 == p.c2 && this.c2 == p.c1);
-				*/
+			return this.c1 == p.c1 && this.c2 == p.c2;
+			
+		}
+		
+		public String toString() 
+		{
+			return c1.name + " - " + c2.name;
 		}
 	}
 	
@@ -52,11 +67,23 @@ public class Dijkastra
 	int getCost(City s, City d, HashMap<Path, Integer> pathCosts)
 	{
 		int cost = 0;
-		Path p = new Path(s, d);
+		//Path p = new Path(s, d);
+		//System.out.println(pathCosts);
+		
+		/*
 		if (pathCosts.get(p) != null) {
 			cost = pathCosts.get(p);
 		} else {
 			cost = Integer.MAX_VALUE;
+		}
+		*/
+		
+		// Cannot search using equality, need to use a hacky method
+		for (Path p1 : pathCosts.keySet()) {
+			if (p1.c1.equals(s) && p1.c2.equals(d)) {
+				cost = pathCosts.get(p1);
+				break;
+			}
 		}
 		
 		return cost;
@@ -76,11 +103,13 @@ public class Dijkastra
 			s.visited = true;
 			
 			for (City n : s.adjacent) {
-				if (!n.visited) {
-					int newCost = n.cost + getCost(s, n, pathCosts);
-					if (n.cost > newCost) {
+				if (!n.visited) {					
+					
+					int newCost = s.cost + getCost(s, n, pathCosts);
+					if (newCost < n.cost) {
 						n.cost = newCost;
-					}
+					}					
+					
 					n.parent = s;
 					queue.add(n);
 				}
@@ -132,13 +161,15 @@ public class Dijkastra
 		four.adjacent.add(three);
 		
 		Dijkastra d = new Dijkastra();
-		d.dijkastra(one, pathCosts);
+		d.dijkastra(one, pathCosts);		
+
 		
-		for (City city : allCities) {
-			System.out.println("Name: " + city.name + ", Cost from " + one.name + " : " + city.cost);
+		for (City city : allCities) {			
 			printParent(city);
-			System.out.println();
-		}		
+			System.out.println(" : " + city.cost);
+		}
+		
+		
 	}
 	
 }
