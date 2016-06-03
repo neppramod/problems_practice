@@ -27,5 +27,6 @@ public class PalindromePermutation14
     public static void main(String[] args)
     {
         System.out.println(palindromePermutation("tact coa"));
+        System.out.println(palindromePermutation("tacp coa"));
     }
 }
