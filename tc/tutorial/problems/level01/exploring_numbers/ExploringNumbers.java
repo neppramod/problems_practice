@@ -28,7 +28,8 @@ public class ExploringNumbers
 
     public int numberOfSteps(int n)
     {
-        boolean[] prime = seive(1000000000);
+        //boolean[] prime = seive(1000000000);
+        boolean[] prime = seive(100000000);  // This got accepted
         
         int i = 1;
         int cur = n;
