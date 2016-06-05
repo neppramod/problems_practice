@@ -16,9 +16,9 @@ public class RemoveDups
             while (cur.next != null) {
                 if (cur.next.data == node.data) {
                     cur.next = cur.next.next;
+                } else {
+                    cur = cur.next;
                 }
-
-                cur = cur.next;
             }
             
             node = node.next;
