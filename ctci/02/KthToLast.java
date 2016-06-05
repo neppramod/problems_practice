@@ -48,7 +48,6 @@ public class KthToLast
 
         Node node = kthToLast(n, 3);
         System.out.println(node.data);
-
     }
 
 }
