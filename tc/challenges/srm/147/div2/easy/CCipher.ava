@@ -1,0 +1,7 @@
+public class CCipher
+{
+        String decode(String cipherText, int shift)
+        {
+                
+        }
+}
