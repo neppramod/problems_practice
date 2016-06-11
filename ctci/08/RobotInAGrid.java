@@ -2,6 +2,7 @@ import java.util.*;
 
 public class RobotInAGrid
 {
+    static int count = 0;
     static class Point
     {
 	int x;
@@ -38,6 +39,7 @@ public class RobotInAGrid
 
     static boolean getPath(boolean[][] mesh, int row, int col, ArrayList<Point> path, HashSet<Point> badPath)
     {
+        count++;
 	if (row < 0 || col < 0 || !mesh[row][col])
 	    return false;
 
@@ -82,5 +84,6 @@ public class RobotInAGrid
 	maze[2][1] = false;
 	
 	System.out.println(getPath(maze));
+        System.out.println(count);
     }
 }
