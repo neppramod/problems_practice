@@ -25,9 +25,10 @@ public class PermutationsPower
             }
 
             allset.addAll(newSet);
+            return allset;
         }
         
-        return allset;
+        
     }
 
     public static void main(String[] args)
