@@ -16,7 +16,8 @@ public class ReverseLinkedList
 			return node;
 		} else {
 			Node rev = reverse(node.next);
-			node.next.next = node;
+			//node.next.next = node;
+			rev.next = node;
 			node.next = null;
 			return rev;
 		}
