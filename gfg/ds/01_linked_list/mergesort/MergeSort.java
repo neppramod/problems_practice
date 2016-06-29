@@ -61,7 +61,7 @@ Node MergeSorted(Node a, Node b)
         result.next = MergeSorted(a, b.next);
     }
 
-    return result;
+    return result;    
 }
 
 
