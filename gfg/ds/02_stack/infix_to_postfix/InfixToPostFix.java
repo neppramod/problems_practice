@@ -26,6 +26,8 @@ String infixToPostFix(String infix)
                 sb.append(s);
             }
         } else if (isOperator(c)) {
+            // for '(' in the stack, next operator is not of higher precedence, so we can push
+            // Another version has operator pop until less than equal to. Here pop until less.
             while (!stack.isEmpty() && isHigherPrecedence((char s = stack.peek()), c)) {
                 sb.append(stack.pop());
             }
@@ -38,6 +40,8 @@ String infixToPostFix(String infix)
     while (!stack.isEmpty()) {
         sb.append(stack.pop());
     }
+
+    return sb.toString();
 }
 
 boolean isOperator(char c)
@@ -47,6 +51,8 @@ boolean isOperator(char c)
 }
 
 // does a have higher precedence than b
+// did not include / and ^, but idea is same
+// also include for equality, so that all values that are bigger or equal precedence can be popped.
 boolean isHigherPrecedence(char a, char b)
 {
     if (a == b) {
