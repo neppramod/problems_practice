@@ -1,0 +1,37 @@
+Maximum non overlapping interval.
+
+Given a list of intervals of time, I need to find the set of maximum non-overlapping intervals.
+
+A[] = {[0600, 0830], [0800, 0900], [0900, 1100], [0900, 1130], [1030, 1400], [1230, 1400]}
+
+Time have to be in the range of [0000, 2400]
+
+The maximum non-overlapping set of intervals is [0600, 0830], [0900, 1130], [1230, 1400]
+
+
+maxNonOverlappingSum(A, 0);
+
+int maxNonOverlappingSum(int[] A, int index, ArrayList<Integer> points)
+{
+    if (index >= A.length + 1)
+        return 0;
+        
+    Point cur = A[i];
+    points.add(cur);
+    int max = cur.end-cur.start;
+    for (int i = index+1; i < A.length; i++) {
+        Point x = A[i];
+        if (x.start > cur.end) {
+            int mx = (cur.end - cur.start) + maxNonOverlappingSum(A, i+1);
+            if (mx > max) {
+                max = mx;
+                //points.add(x);    
+            }
+        }
+    }
+    
+    return max;
+}
+
+
+

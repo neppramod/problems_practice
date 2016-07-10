@@ -1,0 +1,64 @@
+
+S = "abcdabdc"  , 8
+P = "dab"       , 3
+
+8-3 = 5
+
+int h = hash(dab);
+
+S from 0 to S.length-P.length;
+
+1. First we create hash of the three characters called 'hash'
+2. Then we compare this hash with the hash of the pattern we want to search
+3. If the hash matches we compare the next P.length chars with characters fo P and if they are equal return current index
+4. Else, to create new hash, check if current index + 3 is less than S.length
+    - subtract the integer value of current character at i, divide the sum of hash by the used prime number and add next character in subsequent index by multiplying it with intval(char.At(i+3)) * Math.pow(prime_number, P.length-1);
+    
+
+int prime_number = 101;
+int foundIndex(String s, String p)
+{
+
+    int pattern_hash = get_hash(p);
+    
+    StringBuilder sb = new StringBuilder();
+    for (int i = 0; i < p.length(); i++) {
+        sb.append(s.charAt(i));
+    }
+    
+    int hash = get_hash(sb.toString());        
+    for (int i = 0; i < s.length(); i++) {
+        if (hash == pattern_hash && matches(s, i, p)) {
+            return i;
+        }
+       
+       
+        if (i+p.length() > s.length()) {        // TODO: Check for off by 1
+            return -1;
+        }
+        
+        hash -= s.charAt(i);
+        hash /= prime_number;
+        hash += s.charAt(i+p.length()) * Math.pow(pattern_hash, p.length() - 1);       
+        
+    }
+}
+
+int get_hash(String p)
+{
+    int hash = 0;
+    for (int i = 0; i < p.length(); i++) {
+        hash+= Math.pow(101, i) * p.charAt(i);
+    }
+    
+    return hash;
+}
+
+boolean matches(String s, int i, String p)
+{
+    for (int j = 0; j < p.length(); j++) {
+        if (p.charAt(j) != s.charAt(j+i))
+            return false;
+    }
+    return true;
+}
