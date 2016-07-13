@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class BalancedPartition
+public class EditDistance
 {
     // Convert A to B
     static int minimumEdits(char[] A, char[] B)
