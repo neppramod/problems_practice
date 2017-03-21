@@ -4,17 +4,15 @@ Total Submissions: 673783
 Difficulty: Medium
 You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
 
-Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
-Output: 7 -> 0 -> 8
+Input: (2 -> 4 -> 3) + (5 -> 6 -> 4 -> 9)
+Output: 7 -> 0 -> 8 -> 9
 
 Solution
 
-1. Create new node for each sum.
-2. We need to save any carry (starts from 0)
+Different Cases
+===============
 
-3. Add two nodes + carry, save sum % 10 in first, sum/10 in carry. Once the carry is used, reset it.
-4. If one of the nodes end fast, use 0, if both end and still carry exists create another node and add the carry.
-
-
-
+1. node1 and node2 both are null and carry is 0
+2. node1 is null, but node2 is not null
+3. node1 is not null, but node2 is null
 
