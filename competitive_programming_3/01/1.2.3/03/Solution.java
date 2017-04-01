@@ -1,5 +1,7 @@
 /**
 Given a date, determine the day of the week (Monday, ... Sunday)
+
+Answer: Saturday
 */
 
 import java.util.*;
