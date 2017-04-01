@@ -1,5 +1,13 @@
 /**
 Generate all possible permutations of {'A', 'B', 'C', ..., 'J'}, the first N = 10 letters in the alphabet (see Section 3.2.1).
+
+ABC
+ACB
+BAC
+BCA
+CAB
+CBA
+
 */
 
 import java.util.*;
