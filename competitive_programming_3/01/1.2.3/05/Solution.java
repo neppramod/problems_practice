@@ -1,6 +1,10 @@
 /**
 Given a distinct and valid birthdates of n people as triples (DD, MM, YYYY), order them first by ascending birth months (MM),
 then by ascending birth dates (DD), and finally by ascending age.
+
+[2015-02-15, 2010-03-06, 2012-09-15]
+[2010-03-06, 2015-02-15, 2012-09-15]
+[2010-03-06, 2012-09-15, 2015-02-15, ]
 */
 import java.util.*;
 import java.text.*;
