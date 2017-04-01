@@ -14,12 +14,16 @@ public class Solution
     }
 
     public static void permutation(List<Character> charList, String prefix) {
+
+        // Always get to the same size: Permutation, Order Matters !! (POM)
         if (charList.size() == 0) {
             System.out.println(prefix);
         } else {
             for (int i = 0; i < charList.size(); i++) {
                 List<Character> newList = new ArrayList<>(charList);
                 newList.remove(i);
+
+                // Pick a single value at each iteration and attach everything else to it.
                 String newString = prefix + charList.get(i);
                 permutation(newList, newString);
             }
