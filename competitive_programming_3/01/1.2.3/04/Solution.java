@@ -1,6 +1,8 @@
 /*
 
 04 - Given n random integers, print the distinct (unique) integers in sorted order
+
+Answer (Random): [1, 5, 19, 44, 45, 60, 63, 84, 92, 93]
 */
 
 import java.util.*;
