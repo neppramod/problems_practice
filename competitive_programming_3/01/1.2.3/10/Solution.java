@@ -1,6 +1,9 @@
 /**
    Given a string, replace all ‘special words’ of length 3 with 3 stars
    special word = lowercase alphabet followed by two consecutive digits.
+
+   // line: *** and *** will be replaced, aa24 and a872 will not
+
  */
 
 import java.util.*;
