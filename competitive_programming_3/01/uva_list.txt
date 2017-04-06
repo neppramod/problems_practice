@@ -1,6 +1,6 @@
 • Super Easy Problems in the UVa Online Judge (solvable in under 7 minutes)
 x UVa 00272 - TEX Quotes (replace all double quotes to TEX() style quotes)
-UVa 01124 - Celebrity Jeopardy (LA 2681, just echo/re-print the input again)
+x UVa 01124 - Celebrity Jeopardy (LA 2681, just echo/re-print the input again)
 UVa 10550 - Combination Lock (simple, do as asked)
 UVa 11044 - Searching for Nessy (one liner code/formula exists)
 UVa 11172 - Relational Operators * (ad hoc, very easy, one liner)
