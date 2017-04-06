@@ -1,8 +1,13 @@
 • Super Easy Problems in the UVa Online Judge (solvable in under 7 minutes)
 x UVa 00272 - TEX Quotes (replace all double quotes to TEX() style quotes)
 x UVa 01124 - Celebrity Jeopardy (LA 2681, just echo/re-print the input again)
+<<<<<<< HEAD
 UVa 10550 - Combination Lock (simple, do as asked)
 UVa 11044 - Searching for Nessy (one liner code/formula exists)
+=======
+x UVa 10550 - Combination Lock (simple, do as asked)
+x UVa 11044 - Searching for Nessy (one liner code/formula exists)
+>>>>>>> 12ba0569e57fc81ff3f9bf7932f61f6df77e539f
 UVa 11172 - Relational Operators * (ad hoc, very easy, one liner)
 UVa 11364 - Parking (linear scan to get l & r, answer = 2 ∗ (r − l))
 UVa 11498 - Division of Nlogonia * (just use if-else statements)
