@@ -35,37 +35,26 @@ public class Maths
         return b * a / gcd(a,b);
     }
 
-    public static class Point
+    public static boolean ispointgreater(int[] p1, int[] p2)
     {
-        int x, y;
-        public Point(int x1, int y1) { x = x1; y = y1;}
-        public int getX() { return x; }
-        public int getY() { return y; }
-        public void setX(int x1) { x = x1; }
-        public void setY(int y1) { y = y1; }
-        boolean isGreaterThan(Point p) { if (p != null) { return x > p.getX() && y > p.getY(); } return false;}
+        return (p1[0] > p2[0]) && (p1[1] > p2[1]);
     }
 
-    public static class Rectangle
+    // return ll and tr of the intersection rectangle (4 values)
+    public static int[] intersectionrectangle(int[] ll1, int[] tr1, int[] ll2, int[] tr2)
     {
-        Point ll1, tr1;
-        public Rectangle(Point ll11, Point tr11) { ll1 = ll11; tr1 = tr11;}
-        public Point getLL1() { return ll1; }
-        public Point getTR1() { return tr1; }
-        public void setLL1(Point ll11) { ll1 = ll11; }
-        public void setTR1(Point tr11) { tr1 = tr11; }
-    }
+        int[] intll1 = {Math.max(ll1[0], ll2[0]), Math.max(ll1[1], ll2[1])};
+        int[] inttr1 = {Math.min(tr1[0], tr2[0]), Math.min(tr1[1], tr2[1])};
+        int[] rect = {Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE};
 
-    public static Rectangle intersection(Point LL1, Point TR1, Point LL2, Point TR2)
-    {
-        Point intll1 = new Point(Math.max(LL1.x, LL2.x), Math.max(LL1.y, LL2.y));
-        Point inttr1 = new Point(Math.min(TR1.x, TR2.x), Math.min(TR1.y, TR2.y));
+        if (!ispointgreater(intll1, inttr1)) {
+            rect[0] = intll1[0];
+            rect[1] = intll1[1];
+            rect[2] = inttr1[0];
+            rect[3] = inttr1[1];
+        }
 
-        if (intll1 != null && inttr1 != null && !intll1.isGreaterThan(inttr1))
-            return new Rectangle(intll1, inttr1);
-
-        return null;
-
+        return rect;
     }
 
     // Area of polygon
