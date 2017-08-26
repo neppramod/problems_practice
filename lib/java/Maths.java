@@ -249,6 +249,62 @@ public class Maths
         return XDash;
     }
 
+    // returns the selected points
+    // if onEdge, use as many points as possible
+    public static boolean[] convexHull(int[][] X, boolean onEdge)
+    {
+        int N = X.length;
+        int p = 0;
+        boolean[] used = new boolean[N];
+
+        // First find the leftmost point
+        for (int i = 1; i < N; i++) {
+            if (X[i][0] < X[p][0] && X[i][1] < X[p][1])
+                p = i;
+        }
+
+        int start = p;
+
+        do {
+            int n = -1;
+            int dist = onEdge?Integer.MAX_VALUE:0;
+
+            for (int i = 0; i < N; i++) {
+                // X[i] is the X in discussion
+
+                // don't go back to the same point you came from
+                if (i == p) continue;
+
+                // if next point is yet not selected, select one
+                if (n == -1) n = i;
+
+                // PX X PN
+                int crss = cross(X[p], X[i], X[n]);
+                int d = distance(X[p], X[i]);
+
+                if (crss < 0) {
+                    n = i;
+                    dist = d;
+                } else if (crss == 0) {
+                    // In this case both N anx X are in same direction. If onEdge is
+                    // true, pick the closest one, otherwise pick farthest one
+                    if (onEdge && d < dist) {
+                        dist = d;
+                        n = i;
+                    } else if (!onEdge && d > dist) {
+                        dist = d;
+                        n = i;
+                    }
+                }
+            }
+
+            p = n;
+            used[p] = true;
+        } while (p != start);
+
+        return used;
+    }
+
     // rotation of point
     // [cos -sin]
     // [sin cos]
