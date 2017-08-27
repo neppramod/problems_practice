@@ -20,7 +20,9 @@ public class JonnyFunPlan
 
     public ArrayList<Activity> selectedActivities(ArrayList<Activity> allActivities)
     {
+        // Sort according to acending order of finish time
         Collections.sort(allActivities);
+
         ArrayList<Activity> selected = new ArrayList<Activity>();
         if (allActivities.size() == 0) return selected;
         selected.add(allActivities.get(0));
@@ -43,6 +45,6 @@ public class JonnyFunPlan
     }
 
     private static ArrayList<Activity> prepareList() {
-
+        return null;
     }
 }
