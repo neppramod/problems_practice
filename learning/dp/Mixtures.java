@@ -2,49 +2,43 @@ import java.util.*;
 
 public class Mixtures
 {
-    public static int minSmoke(ArrayList<Integer> mixtures)
-        {
-            if (mixtures.size() < 2) return 0;
+    public static int minSmoke(int[] p)
+    {
+        int n = p.length;
+        int[][] m = new int[n][n];
+        int[][] c = new int[n][n];
 
-            int s = 0;
-            while(mixtures.size() >= 3) {
-                int m1 = mixtures.remove(0);
-                int m2 = mixtures.remove(0);
-                int m3 = mixtures.remove(0);
-
-                int t11 = 0, t12 = 0, s11 = 0, s12 = 0;
-                int t21 = 0, t22 = 0, s21 = 0, s22 = 0;
-
-                t11 = (m1 + m2) % 100;
-                t12 = (t11 + m3) % 100;
-                s11 = m1 * m2;
-                s12 = t11 * m3;
-
-                t21 = (m2 + m3) % 100;
-                t22 = (t21 + m1) % 100;
-                s21 = m2 * m3;
-                s22 = t21 * m1;
-
-                s += Math.min(s11 + s12, s21 + s22);
-                mixtures.add(0, Math.min(t12, t22));
-            }
-
-            if (mixtures.size() == 2)
-                s = mixtures.get(0) * mixtures.get(1);
-
-            return s;
+        for (int i = 0; i < n; i++) {
+            c[i][i] = p[i];
+            m[i][i] = 0;
         }
+
+        for (int l = 2; l <= n; l++) {
+            for (int i = 0; i < n - l + 1; i++) {
+                int j = i + l - 1;
+                m[i][j] = Integer.MAX_VALUE;
+                for (int k = i; k < j; k++) {
+                    int q = m[i][k] + m[k+1][j] + c[i][k] * c[k+1][j];
+                    if (q < m[i][j]) {
+                        m[i][j] = q;
+                        c[i][j] = (c[i][k] + c[k+1][j]) % 100;
+                    }
+                }
+            }
+        }
+
+        return m[0][n-1];
+    }
 
     public static void main(String[] args)
-        {
-            Scanner sc = new Scanner(System.in);
-
-            ArrayList<Integer> mixtures = new ArrayList<>();
-            int N = sc.nextInt();
-            for (int j = 0; j < N; j++) {
-                mixtures.add(sc.nextInt());
-            }
-            System.out.println(minSmoke(mixtures));
-
+    {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int[] p = new int[N];
+        for (int i = 0; i < N; i++) {
+            p[i] = sc.nextInt();
         }
+
+        System.out.println(minSmoke(p));
+    }
 }
