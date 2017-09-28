@@ -74,8 +74,7 @@ public class ACMAKER
 
     public static void main(String[] args)
     {
-        //String[] words = {"academy", "computer", "makers"};
-        //char[] acro = "acm".toCharArray();
+
         Scanner sc = new Scanner(System.in);
         while(true) {
             int N = sc.nextInt();
