@@ -76,15 +76,36 @@ public class ACMAKER
     {
         //String[] words = {"academy", "computer", "makers"};
         //char[] acro = "acm".toCharArray();
-        String line = "ACM academy of computer makers";
-        String[] insigwords ={"and", "of"};
-        String[] filteredWords = filterWords(line, insigwords);
-        char[] acro = filteredWords[0].toLowerCase().toCharArray();
-        String[] words = new String[filteredWords.length-1];
-        System.arraycopy(filteredWords, 1, words, 0, words.length);
+        Scanner sc = new Scanner(System.in);
+        while(true) {
+            int N = sc.nextInt();
+            if (N == 0)break;
+            String[] insigwords = new String[N];
+            for (int i = 0; i < insigwords.length; i++) {
+                insigwords[i] = sc.next();
+            }
 
-        System.out.println(Arrays.toString(words));
+            // line feed
+            sc.nextLine();
+            while(true) {
+                String line = sc.nextLine();
+                if ("LAST CASE".equals(line.trim())) break;
 
-        System.out.println(maxCount(words, acro));
+                String[] filteredWords = filterWords(line, insigwords);
+                String acronym = filteredWords[0];
+                char[] acro = acronym.toLowerCase().toCharArray();
+                String[] words = new String[filteredWords.length-1];
+                System.arraycopy(filteredWords, 1, words, 0, words.length);
+
+                String output = "";
+                int count = maxCount(words, acro);
+                if (count > 0)
+                    output = String.format("%s can be formed in %d ways", acronym, count);
+                else
+                    output = String.format("%s is not a valid abbreviation", acronym);
+
+                System.out.println(output);
+            }
+        }
     }
 }
