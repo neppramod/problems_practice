@@ -8,7 +8,7 @@ import java.util.*;
   1. if arr[c-'a'] == true, set to false else set to true
   2. Count all array and if size of true is more than 1 break and return false
 
-  Assuming all lower case
+  Assuming all lower case 
 */
 
 public class PalindromeBoolean
