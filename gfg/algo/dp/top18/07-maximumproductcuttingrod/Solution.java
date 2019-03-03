@@ -34,6 +34,7 @@ public class Solution
         for (int i = 1; i <= N; i++) {
             int max = 0;
             for (int j = 1; j <= i/2; j++) {
+// j is required to go below i/2 as we don't want negative and half covers the range
                 int cur = Math.max(j * (i-j), j * dp[i-j]);
                 if (cur > max) max = cur;
             }
