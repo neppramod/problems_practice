@@ -1,5 +1,10 @@
 import java.util.*;
 
+/*
+  BFS: 2, 0, 3, 1
+  DFS: 2, 0, 1, 3
+ */
+
 public class Solution
 {
     public static void main(String[] args) {
@@ -14,7 +19,9 @@ public class Solution
         g.addEdge(3, 3);
 
         g.BFS(2);
-
+        boolean[] visited = new boolean[g.V];
+        g.DFS(2, visited);
+        System.out.println();
     }
 
     static class Graph
@@ -59,6 +66,17 @@ public class Solution
             }
 
             System.out.println();
+        }
+
+        void DFS(int start, boolean[] visited)
+        {
+            visited[start] = true;
+            System.out.printf("%d, ", start);
+            for (int c : adjacencyList[start]) {
+                if (!visited[c]) {
+                    DFS(c, visited);
+                }
+            }
         }
     }
 }
