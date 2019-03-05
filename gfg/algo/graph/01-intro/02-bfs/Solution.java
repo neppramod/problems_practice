@@ -36,22 +36,22 @@ public class Solution
             // undirected
             adjacencyList[src].add(dest);
 
-        // }
+        }
 
-        // void BFS(int start)
-        // {
-        //     boolean visited[] = new boolean[V];
-        //     Queue<Integer> queue = new LinkedList<>();
-        //     queue.add(start);
+        void BFS(int start)
+        {
+            boolean visited[] = new boolean[V];
+            Queue<Integer> queue = new LinkedList<>();
+            queue.add(start);
 
-        //     while(!queue.isEmpty()) {
-        //         Integer cur = queue.poll();
-        //         visited[cur] = true;
+            while(!queue.isEmpty()) {
+                Integer cur = queue.poll();
+                visited[cur] = true;
 
-        //         System.out.printf("%d, ", cur);
+                System.out.printf("%d, ", cur);
 
-        //         for (int c : adjacencyList[cur]) {
-        //             if (!visited[c]) {
+                for (int c : adjacencyList[cur]) {
+                    if (!visited[c]) {
                         visited[c] = true;
                         queue.add(c);
                     }
