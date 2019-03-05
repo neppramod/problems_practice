@@ -50,10 +50,11 @@ public class Solution
             boolean visited[] = new boolean[V];
             Queue<Integer> queue = new LinkedList<>();
             queue.add(start);
+            visited[start] = true;
 
             while(!queue.isEmpty()) {
                 Integer cur = queue.poll();
-                visited[cur] = true;
+                //visited[cur] = true;
 
                 System.out.printf("%d, ", cur);
 
