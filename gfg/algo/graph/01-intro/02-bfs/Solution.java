@@ -35,23 +35,23 @@ public class Solution
         {
             // undirected
             adjacencyList[src].add(dest);
-            adjacencyList[dest].add(src);
-        }
 
-        void BFS(int start)
-        {
-            boolean visited[] = new boolean[V];
-            Queue<Integer> queue = new LinkedList<>();
-            queue.add(start);
+        // }
 
-            while(!queue.isEmpty()) {
-                Integer cur = queue.poll();
-                visited[cur] = true;
+        // void BFS(int start)
+        // {
+        //     boolean visited[] = new boolean[V];
+        //     Queue<Integer> queue = new LinkedList<>();
+        //     queue.add(start);
 
-                System.out.printf("%d, ", cur);
+        //     while(!queue.isEmpty()) {
+        //         Integer cur = queue.poll();
+        //         visited[cur] = true;
 
-                for (int c : adjacencyList[cur]) {
-                    if (!visited[c]) {
+        //         System.out.printf("%d, ", cur);
+
+        //         for (int c : adjacencyList[cur]) {
+        //             if (!visited[c]) {
                         visited[c] = true;
                         queue.add(c);
                     }
