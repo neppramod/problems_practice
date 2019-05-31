@@ -1,0 +1,3 @@
+Exception in thread "main" java.lang.IndexOutOfBoundsException: bitIndex < 0: -2147483648
+	at java.base/java.util.BitSet.set(BitSet.java:445)
+	at BitSetExample.main(BitSetExample.java:13)
