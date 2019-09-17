@@ -70,19 +70,19 @@ public class HuffmanEncodingDecoding {
     {
         if (root == null) {
             return;
-        }
-        if (root.data != '$') {
+        } else if (root.data != '$') {
             codes.put(root.data, str);
+        } else {
+            storeCodes(codes, root.left, str + "0");
+            storeCodes(codes, root.right, str + "1");
         }
-        storeCodes(codes, root.left, str + "0");
-        storeCodes(codes, root.right, str + "1");
 
     }
 
     // Function iterates through the encoded string s
     // if s[i] == '1' then move to node.right
     // if s[i] == '0' then move to node.left
-    // if leaf node, append the node.data to our output string
+    // if leaf node, append the node.data to output string
     static String decode_file(MinHeapNode root, String s)
     {
         StringBuilder sb = new StringBuilder();
@@ -120,7 +120,7 @@ public class HuffmanEncodingDecoding {
         HashMap<Character, String> codes = new HashMap<>();
         storeCodes(codes, huffmanNode, "");  // store huffman value for each character
 
-        System.out.println("Character with their frequencies");
+        System.out.println("Character with their huffman codes");
         for (char code : codes.keySet()) {
             System.out.println(code + " " + codes.get(code));
         }
