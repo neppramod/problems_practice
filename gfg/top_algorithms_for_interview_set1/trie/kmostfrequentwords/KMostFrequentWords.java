@@ -53,7 +53,7 @@ public class KMostFrequentWords
         cur.isEndOfWord = true;
         cur.frequency = cur.frequency + 1;
 
-        // Case 1, word is already present in minHeap
+        // Case 1: word is already present in minHeap
         if (cur.heapNode != null) {
 
             // Unless removed heap will not sort
@@ -61,14 +61,14 @@ public class KMostFrequentWords
             cur.heapNode.frequency = cur.frequency;
             minHeap.add(cur.heapNode);
 
-            // Case 2, word is not present and heap is not full
-        } else if (cur.heapNode == null && minHeap.size() < k) {
+            // Case 2: heap is not full
+        } else if (minHeap.size() < k) {
             cur.heapNode = new MinHeapNode(key, cur.frequency);
             cur.heapNode.trieNode = cur;
             minHeap.add(cur.heapNode);
 
-            // Case 3, word is not present and heap is full, and frequency is more than top of minHeap, replace it
-        } else if (cur.heapNode == null && cur.frequency > minHeap.peek().frequency) {
+            // Case 3: heap is full, and frequency is more than top of minHeap, replace it
+        } else if (cur.frequency > minHeap.peek().frequency) {
             MinHeapNode minHeapRoot = minHeap.poll();
             minHeapRoot.trieNode = cur;
             minHeapRoot.frequency = cur.frequency;

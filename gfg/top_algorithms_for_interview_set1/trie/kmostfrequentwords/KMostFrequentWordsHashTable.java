@@ -18,29 +18,28 @@ public class KMostFrequentWordsHashTable
         public int compareTo(MinHeapNode n) { return frequency - n.frequency; }
     }
 
-    public static void insertIntoHashTable(HashMap<String, Integer> hashTable, String word)
+    public static void insertIntoHashTable(HashMap<String, Integer> hashMap, String word)
     {
         // Insert into hash table
-        if (hashTable.containsKey(word)) {
-            hashTable.put(word, hashTable.get(word) + 1);
+        if (hashMap.containsKey(word)) {
+            hashMap.put(word, hashMap.get(word) + 1);
         } else {
-            hashTable.put(word, 1);
+            hashMap.put(word, 1);
         }
     }
 
-    public static void insertAndUpdateHeap(HashMap<String, Integer> hashTable, PriorityQueue<MinHeapNode> minHeap, int k)
+    public static void insertAndUpdateHeap(HashMap<String, Integer> hashMap, PriorityQueue<MinHeapNode> minHeap, int k)
     {
-        for (String key : hashTable.keySet()) {
-            int frequency = hashTable.get(key);
+        for (String key : hashMap.keySet()) {
+            int frequency = hashMap.get(key);
             if (minHeap.size() < k) {
                 minHeap.add(new MinHeapNode(key, frequency));
-            } else {
-                if (frequency > minHeap.peek().frequency) {
+            } else if (frequency > minHeap.peek().frequency) {
                     MinHeapNode topNode = minHeap.poll();
                     topNode. word = key;
                     topNode.frequency = frequency;
                     minHeap.add(topNode);
-                }
+
             }
         }
     }
@@ -48,15 +47,15 @@ public class KMostFrequentWordsHashTable
     public static void main(String[] args) throws Exception
     {
         PriorityQueue<MinHeapNode> minHeap = new PriorityQueue<>();
-        HashMap<String, Integer> hashTable = new HashMap<>();
+        HashMap<String, Integer> hashMap = new HashMap<>();
         int k = 5;
 
         Scanner sc = new Scanner(new File("file.txt"));
         while(sc.hasNext()) {
-            insertIntoHashTable(hashTable, sc.next());
+            insertIntoHashTable(hashMap, sc.next());
         }
 
-        insertAndUpdateHeap(hashTable, minHeap, k);
+        insertAndUpdateHeap(hashMap, minHeap, k);
 
         System.out.println(minHeap);
     }
