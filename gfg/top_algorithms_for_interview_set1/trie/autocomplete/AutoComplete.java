@@ -66,7 +66,7 @@ public class AutoComplete
     {
         // Found a string in Trie with given prefix
         if (root.isWordEnd) {
-            System.out.println(currPrefix.toString());
+            System.out.println(currPrefix);
         }
 
         if (isLastNode(root)) {
@@ -83,6 +83,7 @@ public class AutoComplete
 
                 // Delete this character for other branches, after it was used above
                 currPrefix = currPrefix.substring(0, currPrefix.length() - 1);
+
             }
         }
     }
