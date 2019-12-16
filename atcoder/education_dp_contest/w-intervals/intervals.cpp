@@ -11,6 +11,7 @@ ll t[4 * MAXN], lazy[4 * MAXN], dp[MAXN], a[MAXN];
 int m, n, li[MAXN], ri[MAXN];
 vector<int> left1[MAXN], right1[MAXN];
 
+// see https://cp-algorithms.com/data_structures/segment_tree.html for segment tree implementation
 void push(int v)
 {
     t[v * 2] += lazy[v];
