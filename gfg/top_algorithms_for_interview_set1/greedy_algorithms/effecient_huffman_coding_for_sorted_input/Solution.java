@@ -36,8 +36,6 @@ public class Solution
         return firstQueue.poll();
     }
 
-
-
     static void printCodes(Node root, String str)
     {
         if (root == null) {
@@ -45,21 +43,16 @@ public class Solution
         }
 
         if (root.data != '$') {
-            System.out.println(root.data + " ");
+            System.out.println((char)root.data + " " + str);
         }
 
         printCodes(root.left, str + "0");
         printCodes(root.right, str + "1");
     }
 
-    public static void main(String[] args)
+    static void huffmanCodes(char[] arr, int[] freq, int size)
     {
-        char arr[] = {'a', 'b', 'c', 'd', 'e', 'f'};
-        int freq[] = {5, 9, 12, 13, 16, 45};
-        int size = arr.length;
-
-
-        for (int i = 0; i < size; i++) {
+    	for (int i = 0; i < size; i++) {
             firstQueue.add(new Node(arr[i], freq[i]));
         }
 
@@ -75,7 +68,14 @@ public class Solution
 
         Node f = secondQueue.peek();
         printCodes(f, "");
+    }
 
+    public static void main(String[] args)
+    {
+        char arr[] = {'a', 'b', 'c', 'd', 'e', 'f'};
+        int freq[] = {5, 9, 12, 13, 16, 45};
+        int size = arr.length;
+        huffmanCodes(arr, freq, size);
     }
 
 }
