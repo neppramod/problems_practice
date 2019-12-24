@@ -6,24 +6,26 @@ public class Solution
 
         Scanner sc = new Scanner(System.in);
 
-        long low = sc.nextLong();
-        long high = sc.nextLong();
-        System.out.println(sequentialDigits(low, high));
+        int low = sc.nextInt();
+        int high = sc.nextInt();
+
+        Solution sol = new Solution();
+        System.out.println(sol.sequentialDigits(low, high));
 
     }
 
-    static public List<Long> sequentialDigits(long low, long high) {
+    public List<Integer> sequentialDigits(int low, int high) {
         long low1 = low/10;
         long high1 = Math.min(high, 123456789);
 
         long num = low1;
 
-        List<Long> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
         while (num < high1) {
             num = getSequence(num);
             //System.out.println(num);
             if (num >= low && num <= high) {
-                list.add(num);
+                list.add((int)num);
             }
 
         }
@@ -31,7 +33,7 @@ public class Solution
         return list;
     }
 
-    static long getSequence(long num) {
+     long getSequence(long num) {
         int numberOfDigits = (int)Math.log10(num) + 1;
 
         long tenPow = (long)Math.pow(10, numberOfDigits-1);
@@ -51,7 +53,7 @@ public class Solution
         }
 
         return Long.valueOf(sb.toString());
-    }
+     }
 
 
 }
