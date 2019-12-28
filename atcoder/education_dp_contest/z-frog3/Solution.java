@@ -1,6 +1,10 @@
 import java.util.*;
 import java.math.*;
 
+/*
+  dpi  = (j < i) min((hi-hj)^2 + C + dpj)
+ */
+
 public class Solution
 {
     public static void main(String[] args) {

@@ -23,8 +23,9 @@ public class Solution
                 } else if (X[i-1] == Y[j-1]) {
                     dp[i][j] = dp[i-1][j-1];
                 } else {
-                    dp[i][j] = Math.min(dp[i][j-1], dp[i-1][j]) + 1;
-                    dp[i][j] = Math.min(dp[i][j], dp[i-1][j-1] + 1);
+                    int x = Math.min(dp[i-1][j], dp[i][j-1]);
+                    x = Math.min(x, dp[i-1][j-1]);
+                    dp[i][j] = x + 1;
                 }
             }
         }
