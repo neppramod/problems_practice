@@ -19,6 +19,7 @@ public class Solution
         long result = 0;
         for (int i = 0; i < N; i++) {
             for (int j = W; j >= wt[i]; j--) {
+                //for (int j = wt[i]; j <= W; j++){
                 dp[j] = Math.max(dp[j], dp[j-wt[i]] + val[i]);
 
                 result = Math.max(result, dp[j]);
@@ -26,5 +27,6 @@ public class Solution
         }
 
         System.out.println(result);
+        System.out.println(dp[W]);
     }
 }
