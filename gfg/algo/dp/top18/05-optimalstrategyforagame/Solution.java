@@ -24,7 +24,7 @@ public class Solution
         int n = v.length;
         int table[][] = new int[n][n];
 
-        for (int gap=1; gap < n; gap++) {
+        for (int gap=0; gap < n; gap++) {
             for (int i = 0, j = gap; j < n; i++,j++) {
                 int x = (i + 2 <= j) ? table[i+2][j] : 0;
                 int y =(i + 1 <= j-1) ? table[i+1][j-1] : 0;
