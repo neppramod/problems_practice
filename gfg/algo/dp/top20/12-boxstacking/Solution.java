@@ -54,16 +54,15 @@ public class Solution
 
         int best = 0;
         for (int i = 0; i < count; i++) {
-            Box prev = rot[i];
+            Box cur = rot[i];
             for (int j = 0; j < i; j++) {
-                Box cur = rot[j];
-                if (prev.w < cur.w && prev.d < cur.d) {
-                    dp[i] = Math.max(dp[i], dp[j] + prev.h);
+                Box prev = rot[j];
+                if (cur.w < prev.w && cur.d < prev.d) {
+                    dp[i] = Math.max(dp[i], dp[j] + cur.h);
                     best = Math.max(best, dp[i]);
                 }
             }
         }
-
         return best;
     }
 }
