@@ -13,6 +13,8 @@ public class Solution
         System.out.println(findWays(4, 2, 5));
         System.out.println(findWays(4, 3, 5));
 
+        System.out.println(findWays(6, 2, 10));
+
     }
 
     public static long findWays(int m, int n, int x) {
