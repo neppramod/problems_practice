@@ -1,0 +1,17 @@
+import java.util.*;
+ 
+public class Solution
+{
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+         
+    }
+    
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+		int total = nums1.length + nums2.length;
+
+		if (total % 2 == 0) {
+			return (getKth(nums1, 0, nums1.length-1, nums2, 0, nums2.length-1, total/2) + getKth(nums1, 0, nums1)
+		}
+	}
+}
