@@ -1,18 +1,14 @@
 import java.util.*;
-
-public class Solution {
-	int pathNumbers = 0;
-
-	public static void main(String[] args) {
-		Solution sol = new Solution();
-		System.out.println("Hello World");
-
-		System.out.println("Hello World");
-
-		System.out.print("Hello World");
-	}
-
-	public int pathSum(TreeNode root, int sum) {
+ 
+public class Solution
+{
+	int paths = 0;
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+         
+    }
+    
+    public int pathSum(TreeNode root, int sum) {
 		if (root == null) {
 			return 0;
 		} else {
@@ -20,10 +16,11 @@ public class Solution {
 			pathSum(root.left, sum);
 			pathSum(root.right, sum);
 
-			return pathNumbers;
+			return paths;
 		}
 
-	}
+		
+    }
 
 	void helper(TreeNode root, int sum) {
 		if (root == null) {
@@ -31,7 +28,7 @@ public class Solution {
 		}
 
 		if (root.val == sum) {
-			pathNumbers++;
+			paths++;
 		}
 
 		if (root != null) {
@@ -41,22 +38,16 @@ public class Solution {
 		}
 	}
 
-	public class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode() {
-		}
-
-		TreeNode(int val) {
-			this.val = val;
-		}
-
-		TreeNode(int val, TreeNode left, TreeNode right) {
-			this.val = val;
-			this.left = left;
-			this.right = right;
-		}
-	}
+  public class TreeNode {
+      int val;
+      TreeNode left;
+      TreeNode right;
+      TreeNode() {}
+      TreeNode(int val) { this.val = val; }
+      TreeNode(int val, TreeNode left, TreeNode right) {
+          this.val = val;
+          this.left = left;
+          this.right = right;
+      }
+  }
 }
