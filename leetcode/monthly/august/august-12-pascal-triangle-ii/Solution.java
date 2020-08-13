@@ -4,7 +4,10 @@ public class Solution
 {
     public static void main(String[] args) {
         Solution sol = new Solution();
-		System.out.println(sol.getRow(4));         
+		for (int i = 0; i < 10; i++) {
+			System.out.println(sol.getRow(i));         			
+		}
+
     }
     
     public List<Integer> getRow(int rowIndex) {
