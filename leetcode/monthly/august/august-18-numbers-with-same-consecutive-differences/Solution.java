@@ -12,79 +12,49 @@ public class Solution
 
 	/* Numbers with Same consecutive differences.
 
-	N = 3, K = 7
-
-	[181, 292, 707, 818, 929]
-
-	1 <= N <= 9
-	0 <= K <= 9
-
-I think we can use simple loop
+	Use dfs(N, K, list, curNumber):
+	case1: N <= 0, add curNumber to list, return
+	case 2:  i range from 0 to 10:
+	   case a:	i == 0, curNumber == 0, continue (leading 0)
+	   case b: i != 0, curNumber == 0, dfs(N-1, K, list, i);
+	case c: Math.abs(curNumber % 10 - i) == K, dfs(N-1, K, list, curNumber * 10 + i);
 	*/
 
 	public int[] numsSameConsecDiff(int N, int K) {
 		List<Integer> list = new ArrayList<>();
 
-		int start = getLowest(N);
-		int end = getHeighest(N);
-
-		for (int i = start; i <= end; i++) {
-			if (consecutiveDiff(i, K)) {
-				list.add(i);
-			}
-		}
-
-		return getArray(list);
-	}
-
-	int[] getArray(List<Integer> list) {
-		int[] answer = new int[list.size()];
-		for (int i = 0; i < list.size(); i++) {
-			answer[i] = list.get(i);
-		}
-
-		return answer;
-	}
-
-	int getLowest(int N) {
 		if (N == 1) {
-			return 0;
+			list.add(0);
 		}
 
-		int answer = 1;
-		while (N-1 > 0) {
-			answer = answer * 10;
-			N--;
+		dfs(N, K, list, 0);
+		int[] arr = new int[list.size()];
+		for (int i = 0; i < list.size(); i++) {
+			arr[i] = list.get(i);
 		}
 
-		return answer;
+		return arr;
 	}
 
-	int getHeighest(int N) {
-		int answer = 9;
-		while (N-1 > 0) {
-			answer = (answer * 10 + 9);
-			N--;
-		}
-
-		return answer;
-	}
-
-	boolean consecutiveDiff(int num, int K) {
-		String numVal = String.valueOf(num);
-		char[] numArr = numVal.toCharArray();
-
-
-
-		for (int i = 0; i < numArr.length-1; i++) {
-			int curDiff = Math.abs(numArr[i+1] - numArr[i]);
-			if (curDiff != K) {
-				return false;
+	void dfs(int N, int K, List<Integer> list, int curNumber) {
+		if (N <= 0) {
+			list.add(curNumber);
+			return;
+		} else {
+			for (int i = 0; i < 10; i++) {
+				if (i == 0 && curNumber == 0) {
+					continue;
+				} else if (i != 0 && curNumber == 0) {
+					dfs(N - 1, K, list, i);
+				} else if (Math.abs(curNumber % 10 - i) == K) {
+					dfs(N - 1, K, list, curNumber * 10 + i);
+				}
 			}
 		}
-
-		return true;
 	}
+
+
+
 
 
 }
