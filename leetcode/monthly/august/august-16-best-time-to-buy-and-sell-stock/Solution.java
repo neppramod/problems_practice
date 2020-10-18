@@ -7,6 +7,7 @@ public class Solution
 		int[] arr = {1, 4, 5, 7, 6, 3, 2, 9};
 		int result = sol.maxProfit(arr);
 		System.out.println(result);
+		System.out.println("Hi");
     }
 
 	public int maxProfit(int[] prices) {
