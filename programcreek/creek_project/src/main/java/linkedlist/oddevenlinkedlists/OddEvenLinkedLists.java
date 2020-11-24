@@ -1,5 +1,6 @@
 package linkedlist.oddevenlinkedlists;
 
+// Group odd nodes together, then even nodes after that
 public class OddEvenLinkedLists {
     public ListNode oddEvenList(ListNode head) {
         if (head == null || head.next == null) {
