@@ -48,6 +48,8 @@ public class GameOfLife {
 				board[i][j] = board[i][j] >> 1;
 			}
 		}
+
+		
 	}
 
 }
