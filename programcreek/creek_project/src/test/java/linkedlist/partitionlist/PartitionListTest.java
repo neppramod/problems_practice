@@ -29,6 +29,18 @@ public class PartitionListTest {
         assertThat(result.next.next.next.next.next.val, is(5));
     }
 
+    @Test
+    public void testWhenTwoInputs() {
+        ListNode ln = c(1);
+        ln.next = c(1);
+        int x = 0;
+        PartitionList partitionList = new PartitionList();
+        ListNode result = partitionList.partition(ln, x);
+
+        assertThat(result.val, is(1));
+        assertThat(result.next.val, is(1));
+    }
+
     static ListNode c(int v) {
         return new ListNode(v);
     }

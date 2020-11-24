@@ -22,7 +22,9 @@ public class GameOfLifeTest {
 		 {0, 1, 1, 0, 1},
 		 {0, 0, 1, 0, 1}};
 
+
 		
 		assertThat(board, is(expectedResult));
 	}
 }
+

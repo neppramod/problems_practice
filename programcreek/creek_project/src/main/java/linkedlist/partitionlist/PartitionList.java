@@ -39,10 +39,16 @@ public class PartitionList {
             p = p.next;
         }
 
-        l2.next = null;
-        l1.next = h2;
+        if (l2 != null) {
+            l2.next = null;
+        }
+        
+        if (l1 != null) {
+            l1.next = h2;
+        }
+        
 
-        return h1;
+        return h1 != null ? h1 : h2;
     }
 
     static class ListNode {
