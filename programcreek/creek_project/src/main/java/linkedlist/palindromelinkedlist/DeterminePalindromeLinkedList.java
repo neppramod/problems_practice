@@ -30,7 +30,6 @@ public class DeterminePalindromeLinkedList {
             p = next;
         }
         secondHead.next = null;
-
         p = head;
 
         while (p != null && pre != null) {

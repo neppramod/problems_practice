@@ -39,9 +39,7 @@ public class DeterminePalindromeLinkedListTest {
         DeterminePalindromeLinkedList determinePalindromeLinkedList = new DeterminePalindromeLinkedList();
         ListNode ln = c(1);
 
-
         assertThat(determinePalindromeLinkedList.isPalindrome(ln), is(true));
-
     }
 
     static ListNode c(int v) {
