@@ -5,7 +5,8 @@ import static org.hamcrest.MatcherAssert.*;
 
 import org.junit.Test;
 
-import binarytree.preordertraversal.PreorderTraversal.TreeNode;
+import binarytree.TreeNode;
+import static binarytree.TreeNode.c;
 
 import java.util.List;
 
@@ -25,7 +26,5 @@ public class PreorderTraversalTest {
         assertThat(result.get(2), is(3));
     }
 
-    static TreeNode c(int v) {
-        return new TreeNode(v);
-    }
+
 }
