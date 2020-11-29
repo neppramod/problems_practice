@@ -7,7 +7,7 @@ package matrix.matrix0;
  * Do it in place
  */
 
-import java.util.*;
+
 
 public class SetMatrixZeros {
 	public void setZeroes(int[][] matrix) {

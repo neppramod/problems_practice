@@ -23,7 +23,7 @@ public class SpiralMatrix {
 
 		int m = matrix.length;
 		int n = matrix[0].length;
-
+		
 		int x = 0, y = 0;
 		while (m > 0 && n > 0) {
 			// if m == 0 or n == 0, handle single row or col, otherwise handle spiral

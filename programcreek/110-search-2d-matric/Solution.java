@@ -8,7 +8,7 @@ public class Solution
 						  {10, 11, 16, 20},
 				{ 23, 30, 34, 50 } };
 
-		boolean result = sol.find(matrix, 3);
+		boolean result = sol.find(matrix, 34);
 		System.out.println(result);
     }
     
@@ -22,10 +22,10 @@ public class Solution
 		int n = matrix[0].length;
 
 		int end = m * n - 1;
-		int start = 0;
+		int begin = 0;
 
-		while (start <= end) {
-			int mid = start + (end - start) / 2;
+		while (begin <= end) {
+			int mid = begin + (end - begin) / 2;
 			int midX = mid / n;
 			int midY = mid % n;
 
@@ -36,7 +36,7 @@ public class Solution
 			if (target < matrix[midX][midY]) {
 				end = mid -1;
 			} else if (target > matrix[midX][midY]) {
-				start = mid + 1;
+				begin = mid + 1;
 			} 
 		}
 
