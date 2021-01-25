@@ -1,0 +1,12 @@
+import java.util.*;
+
+public class BuildingBoxes {
+    public static void main(String[] args) {
+	    BuildingBoxes sol = new BuildingBoxes();
+		
+	}
+	
+    public int minimumBoxes(int n) {
+		
+    }
+}
