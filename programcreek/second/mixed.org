@@ -1,0 +1,9 @@
+* Remove Duplicates from Sorted Array
+  #+begin_src java
+	import java.util.*;
+
+	public class RemoveDuplicatesFromSortedArray {
+	
+	}
+
+  #+end_src

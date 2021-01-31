@@ -31,7 +31,9 @@ import java.util.*;
 public class Solution {
     public static void main(String[] args) {
 	    Solution sol = new Solution();
-		String[] words = { "wrt", "wrf", "er", "ett", "rftt" };
+		//String[] words = { "wrt", "wrf", "er", "ett", "rftt" };
+		String[] words = { "abc", "ab" };
+		//String[] words = { "z", "z" };
 		String result = sol.alienOrder(words);
 		System.out.println(result);
 	}
@@ -53,11 +55,13 @@ public class Solution {
 		}
 
 
+		boolean exhaust = false;
 		for (int i = 0; i < words.length-1; i++) {
 			String current = words[i];
 			String next = words[i + 1];
 
 			int length = Math.min(current.length(), next.length());
+			
 			for (int j = 0; j < length; j++) {
 				char c1 = current.charAt(j);
 				char c2 = next.charAt(j);
@@ -74,12 +78,32 @@ public class Solution {
 						map.put(c1, set);
 						orderMap.put(c2, orderMap.get(c2) + 1);
 					}
+
+					break;
+				}
+
+				if (j + 1 == length && current.length() > next.length()) {
+					map.clear();
+					exhaust = true;
 					break;
 				}
 			}
+
+			if (exhaust) {
+				break;
+			}
 		}
+
+		if (exhaust) {
+			return "";
+		}
+
+
+		
+		
 		// Topological sorting
 
+		StringBuilder sb = new StringBuilder();
 		Queue<Character> queue = new LinkedList<>();
 		for (char k : orderMap.keySet()) {
 			if (orderMap.get(k) == 0) {
@@ -88,12 +112,11 @@ public class Solution {
 		}
 
 
-		StringBuilder sb = new StringBuilder();
 		while (!queue.isEmpty()) {
 			char c = queue.poll();
 			sb.append(c);
 
-			if (map.containsKey(c)) {
+			if (map.get(c) != null && map.get(c).size() > 0) {
 				Set<Character> set = map.get(c);
 
 				for (char c2 : set) {
@@ -101,6 +124,7 @@ public class Solution {
 
 					if (orderMap.get(c2) == 0) {
 						queue.add(c2);
+						//sb.append(c2);
 					}
 				}
 					
