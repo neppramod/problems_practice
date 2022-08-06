@@ -21,6 +21,7 @@ public class PrintAllPossibleExpressionsThatEvulateToATarget {
     public void printAllPossibleExpressions(String s, int target) {
 	EvaluateExpression eval = new EvaluateExpression();
 	printAllPossibleExpressions(s, "", 0, s.length(), target, eval);
+	gogaal();
     }
 
     void printAllPossibleExpressions(String s, String exp, int start, int end, int target, EvaluateExpression eval) {

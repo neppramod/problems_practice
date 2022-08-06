@@ -12,13 +12,12 @@ public class Atoi {
     public static void main(String[] args) {
 	    Atoi sol = new Atoi();
 		String s = "12345";
-		System.out.println(sol.atoi(s));	   
+		System.out.println(sol.atoi(s));
 	}
 
 	public int atoi(String s) {
 		return atoi(s, s.length() - 1);
 	}
-
 
 	private int atoi(String s, int i) {
 		if (i == 0) {
