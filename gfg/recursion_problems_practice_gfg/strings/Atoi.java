@@ -19,6 +19,7 @@ public class Atoi {
 		return atoi(s, s.length() - 1);
 	}
 
+
 	private int atoi(String s, int i) {
 		if (i == 0) {
 			return s.charAt(i) - '0';

@@ -17,7 +17,7 @@ public class EvaluateExpression {
 	System.out.println(sol.eval(s));
     }
 
-    private int eval(String s) {
+    public int eval(String s) {
 	if (s == null || s.length() == 0) {
 	    return 0;
 	}
