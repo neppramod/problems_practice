@@ -21,7 +21,7 @@ public class PrintAdditiveSequence {
     private void printIsStringWithAdditiveSequence(String s, List<Integer> tmp, int start, int end) {
         if (start >= end) {
             int n = tmp.size();
-            if (n >= 3) {
+            if (n >= 3) {  // If less than 3, we cannot have additive sequence
                 System.out.println(tmp);
             }
         } else {
