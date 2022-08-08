@@ -56,4 +56,4 @@ fabric.properties
 .projectile
 .settings/
 target/
-.vscode/
+.vscode/launch.json
