@@ -56,3 +56,4 @@ fabric.properties
 .projectile
 .settings/
 target/
+.vscode/
