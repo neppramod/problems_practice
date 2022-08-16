@@ -33,17 +33,19 @@ public class DeleteKthNode {
             System.out.printf(r.val + " -> ");
             printList(r.next);
         }
-    } 
-}
+    }
 
+    static class Node {
+        int val;
+        Node next;
 
-
-
-class Node {
-    int val;
-    Node next;
-
-    public Node(int v) {
-        val = v;
+        public Node(int v) {
+            val = v;
+        }
     }
 }
+
+
+
+
+

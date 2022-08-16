@@ -63,14 +63,16 @@ public class AlternativeSplit {
             printList(n.next);
         }
     }
-    
-}
 
-class Node {
-    Node next;
-    int val;
+    static class Node {
+        Node next;
+        int val;
 
-    public Node(int v) {
-        val = v;
+        public Node(int v) {
+            val = v;
+        }
     }
+
+
 }
+

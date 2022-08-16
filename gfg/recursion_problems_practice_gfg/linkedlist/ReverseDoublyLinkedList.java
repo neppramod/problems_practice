@@ -46,13 +46,15 @@ public class ReverseDoublyLinkedList {
             printNode(n.next);
         }
     }
-}
 
-class Node {
-    Node prev, next;
-    int val;
+    static class Node {
+        Node prev, next;
+        int val;
 
-    public Node(int v) {
-        val = v;
+        public Node(int v) {
+            val = v;
+        }
     }
 }
+
+

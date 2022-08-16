@@ -43,16 +43,17 @@ public class DeleteALinkedList {
             printNode(n.next);
         }
     }
-	
-    
-}
 
+    static class Node {
+        int val;
+        Node next;
 
-class Node {
-    int val;
-    Node next;
-
-    public Node(int v) {
-        val = v;
+        public Node(int v) {
+            val = v;
+        }
     }
+
+
 }
+
+
